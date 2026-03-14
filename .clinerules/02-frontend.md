@@ -49,3 +49,7 @@ paths:
 - Project cards must look polished and easy to scan.
 - Contact CTA should be obvious and professional.
 - Every section should contribute to credibility.
+
+## Theme Support
+
+- Always verify text visibility and contrast in both light and dark themes. Use appropriate `text-` and `dark:text-` utility classes to ensure text is legible regardless of the active theme.

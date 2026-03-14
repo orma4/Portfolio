@@ -22,8 +22,9 @@ export const ProjectCard = ({ title, category, image, link, index }: ProjectCard
       className="group relative cursor-pointer"
     >
       {/* Image Container */}
-      <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-surface">
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+      {/* Image Container */}
+      <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-surface ring-1 ring-border group-hover:ring-accent group-hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] transition-all duration-500">
+        <div className="absolute inset-0 bg-black/10 dark:bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <div className="h-full w-full transform transition-transform duration-700 group-hover:scale-105">
           {/* Using a placeholder div for now since I don't have actual images */}
           <div className="w-full h-full bg-gradient-to-br from-surface to-border flex items-center justify-center text-muted text-xs uppercase tracking-widest font-mono">
@@ -33,8 +34,8 @@ export const ProjectCard = ({ title, category, image, link, index }: ProjectCard
 
         {/* Hover Arrow */}
         <div className="absolute top-6 right-6 z-20 opacity-0 transform translate-x-[-10px] translate-y-[10px] transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0">
-          <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-            <ArrowUpRight className="text-background w-6 h-6" />
+          <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center shadow-lg">
+            <ArrowUpRight className="text-white w-6 h-6" />
           </div>
         </div>
       </div>
@@ -43,7 +44,7 @@ export const ProjectCard = ({ title, category, image, link, index }: ProjectCard
       <div className="mt-6 flex justify-between items-start">
         <div className="space-y-1">
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono">{category}</p>
-          <h3 className="text-xl font-medium tracking-tight text-white group-hover:text-accent transition-colors duration-300">
+          <h3 className="text-xl font-medium tracking-tight text-foreground group-hover:text-accent transition-colors duration-300">
             {title}
           </h3>
         </div>

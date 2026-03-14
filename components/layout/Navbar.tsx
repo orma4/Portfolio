@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const NAV_LINKS = [
   { name: "Projects", href: "#projects" },
@@ -28,44 +29,45 @@ export const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled
-          ? "py-4 bg-background/80 backdrop-blur-md border-border"
+          ? "py-4 bg-background/80 backdrop-blur-md border-border/50"
           : "py-8 bg-transparent border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="group relative">
-          <span className="text-xl font-bold tracking-tighter text-white">
-            PORTFOLIO<span className="text-accent">.</span>
-          </span>
-          <div className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-        </Link>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
+        {/* Empty left space for flex balance on desktop, or mobile menu */}
+        <div className="flex-1 md:hidden">
+          <button className="text-foreground">
+            <div className="w-6 h-px bg-foreground mb-1.5" />
+            <div className="w-6 h-px bg-foreground" />
+          </button>
+        </div>
+        <div className="flex-1 hidden md:block"></div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center justify-center gap-10">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[10px] uppercase tracking-[0.2em] text-muted hover:text-white transition-colors duration-300 font-mono"
+              className="group relative text-xs uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors duration-300 font-mono"
             >
               {link.name}
+              <span className="absolute -bottom-2 left-1/2 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full group-hover:left-0" />
             </Link>
           ))}
 
-          <Link
+          {/* <Link
             href="#contact"
-            className="px-6 py-2 border border-border rounded-full text-[10px] uppercase tracking-[0.2em] text-white hover:bg-white hover:text-background transition-all duration-300 font-mono"
+            className="px-6 py-2 border border-border rounded-full text-xs uppercase tracking-[0.2em] text-foreground hover:border-accent hover:text-accent transition-all duration-300 font-mono"
           >
             {"Let's Talk"}
-          </Link>
+          </Link> */}
         </div>
 
-        {/* Mobile Menu Button (simplified for now) */}
-        <button className="md:hidden text-white">
-          <div className="w-6 h-px bg-white mb-1.5" />
-          <div className="w-6 h-px bg-white" />
-        </button>
+        {/* Right side - Theme Toggle */}
+        <div className="flex-1 flex justify-end">
+          <ThemeToggle />
+        </div>
       </div>
     </motion.nav>
   );

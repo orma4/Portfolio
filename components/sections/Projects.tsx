@@ -32,10 +32,10 @@ const PROJECTS = [
 
 export const Projects = () => {
   return (
-    <section className="w-full py-32 px-6 bg-background">
+    <section id="projects" className="w-full py-32 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col mb-20 gap-8">
           <div className="space-y-4">
             <motion.span
               initial={{ opacity: 0 }}
@@ -50,9 +50,9 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl font-bold tracking-tight text-white"
+              className="text-4xl md:text-6xl font-bold tracking-tight text-foreground"
             >
-              SELECTED <br /> PROJECTS.
+              SELECTED <br /> PROJECTS
             </motion.h2>
           </div>
 
@@ -61,7 +61,7 @@ export const Projects = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="max-w-xs text-muted font-light leading-relaxed"
+            className="max-w-xl text-muted font-light leading-relaxed text-lg"
           >
             A curated selection of my most recent work, blending technical excellence with thoughtful design.
           </motion.p>
@@ -80,19 +80,6 @@ export const Projects = () => {
             />
           ))}
         </div>
-
-        {/* View All CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-32 flex justify-center"
-        >
-          <button className="group flex items-center gap-4 text-white hover:text-accent transition-colors duration-300">
-            <span className="text-sm uppercase tracking-[0.3em] font-mono">View All Archives</span>
-            <div className="w-12 h-[1px] bg-border group-hover:bg-accent group-hover:w-16 transition-all duration-300" />
-          </button>
-        </motion.div>
       </div>
     </section>
   );
